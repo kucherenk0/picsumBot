@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component
 data class BotProperties(
     @Value("your bot token")
     val token: String,
-    @Value("your bot username")
+    @Value("your bot username ")
     val botUserName: String
 )
