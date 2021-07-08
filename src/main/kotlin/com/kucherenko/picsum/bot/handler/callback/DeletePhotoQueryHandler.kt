@@ -1,8 +1,8 @@
 package com.kucherenko.picsum.bot.handler.callback
 
 import com.kucherenko.picsum.bot.UserState
-import com.kucherenko.picsum.bot.getDeletConfirmText
 import com.kucherenko.picsum.bot.getDeleteConfirmKeyBoard
+import com.kucherenko.picsum.bot.getDeleteConfirmText
 import com.kucherenko.picsum.bot.handler.UpdateHandler
 import com.kucherenko.picsum.entity.UserEntity
 import com.kucherenko.picsum.service.PhotoService
@@ -20,7 +20,7 @@ class DeletePhotoQueryHandler(
         val photoId = update.callbackQuery.data.substringAfter("/").trim().toLong()
         val photo = photoService.getById(photoId)
 
-        val text = getDeletConfirmText(photo.author, photo.id.toString()) + "\n" + photo.downloadUrl
+        val text = getDeleteConfirmText(photo.author, photo.id.toString()) + "\n" + photo.downloadUrl
         val markup = getDeleteConfirmKeyBoard(photo.id.toString())
 
         sender.execute(

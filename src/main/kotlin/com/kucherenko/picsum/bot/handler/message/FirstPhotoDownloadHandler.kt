@@ -2,7 +2,7 @@ package com.kucherenko.picsum.bot.handler.message
 
 import com.kucherenko.picsum.bot.BOT_CONTENT
 import com.kucherenko.picsum.bot.UserState
-import com.kucherenko.picsum.bot.getMainMenuKeaboard
+import com.kucherenko.picsum.bot.getMainMenuKeyboard
 import com.kucherenko.picsum.bot.getSkipKeyboard
 import com.kucherenko.picsum.bot.handler.UpdateHandler
 import com.kucherenko.picsum.entity.UserEntity
@@ -54,7 +54,7 @@ class FirstPhotoDownloadHandler(
             SendMessage(
                 user.chatId,
                 BOT_CONTENT[UserState.MAIN_MENU]?.text
-            ).setReplyMarkup(getMainMenuKeaboard())
+            ).setReplyMarkup(getMainMenuKeyboard())
         ).messageId
 
         user.mainMenuId = mainMenuId

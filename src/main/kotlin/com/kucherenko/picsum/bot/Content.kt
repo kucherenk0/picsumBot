@@ -43,7 +43,7 @@ val BOT_CONTENT = mapOf(
     ),
     UserState.MAIN_MENU to MessageContent(
         "Main menu",
-        getMainMenuKeaboard()
+        getMainMenuKeyboard()
     ),
     UserState.PHOTOS_SAVED to MessageContent(
         "Photos saved",
@@ -81,7 +81,7 @@ data class MessageContent(
     val markup: InlineKeyboardMarkup?
 )
 
-fun getMainMenuKeaboard(): InlineKeyboardMarkup {
+fun getMainMenuKeyboard(): InlineKeyboardMarkup {
     val addPhotoButton = InlineKeyboardButton()
     addPhotoButton.text = "➕ Add new photos"
     addPhotoButton.callbackData = "add_photos"
@@ -145,7 +145,7 @@ fun getPhotoDescriptionText(author: String, id: String, size: String, url: Strin
     Download URL: $downloadUrl
 """.trimIndent()
 
-fun getDeletConfirmText(author: String, id: String) = """
+fun getDeleteConfirmText(author: String, id: String) = """
     Are you sure you want to delete this photo?
     $author ($id)
 """.trimIndent()
@@ -162,7 +162,7 @@ fun getDeleteConfirmKeyBoard(photoId: String): InlineKeyboardMarkup {
     return InlineKeyboardMarkup().setKeyboard(listOf(listOf(yesButton, noButton)))
 }
 
-fun getUpateAuthorKeyboard(photoId: String): InlineKeyboardMarkup {
+fun getUpdateAuthorKeyboard(photoId: String): InlineKeyboardMarkup {
     val button = InlineKeyboardButton()
     button.text = "🔙 Back"
     button.callbackData = "get_photo/$photoId"

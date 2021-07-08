@@ -2,7 +2,7 @@ package com.kucherenko.picsum.bot.handler.callback
 
 import com.kucherenko.picsum.bot.BOT_CONTENT
 import com.kucherenko.picsum.bot.UserState
-import com.kucherenko.picsum.bot.getMainMenuKeaboard
+import com.kucherenko.picsum.bot.getMainMenuKeyboard
 import com.kucherenko.picsum.bot.handler.UpdateHandler
 import com.kucherenko.picsum.entity.UserEntity
 import com.kucherenko.picsum.service.UserService
@@ -22,7 +22,7 @@ class MainMenuCallBackHandler(
                     .setChatId(user.chatId)
                     .setMessageId(user.mainMenuId)
                     .setText(BOT_CONTENT[UserState.MAIN_MENU]?.text)
-                    .setReplyMarkup(getMainMenuKeaboard())
+                    .setReplyMarkup(getMainMenuKeyboard())
             )
             userService.updateState(user.id, UserState.MAIN_MENU)
         } else {
@@ -30,7 +30,7 @@ class MainMenuCallBackHandler(
                 SendMessage(
                     user.chatId,
                     BOT_CONTENT[UserState.MAIN_MENU]?.text
-                ).setReplyMarkup(getMainMenuKeaboard())
+                ).setReplyMarkup(getMainMenuKeyboard())
             ).messageId
             user.mainMenuId = mainMenuId
             userService.update(user)

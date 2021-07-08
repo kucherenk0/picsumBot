@@ -2,7 +2,7 @@ package com.kucherenko.picsum.bot.handler.callback
 
 import com.kucherenko.picsum.bot.BOT_CONTENT
 import com.kucherenko.picsum.bot.UserState
-import com.kucherenko.picsum.bot.getUpateAuthorKeyboard
+import com.kucherenko.picsum.bot.getUpdateAuthorKeyboard
 import com.kucherenko.picsum.bot.handler.UpdateHandler
 import com.kucherenko.picsum.entity.UserEntity
 import com.kucherenko.picsum.service.UserService
@@ -25,7 +25,7 @@ class UpdateAuthorQueryHandler(
                 .setChatId(user.chatId)
                 .setMessageId(user.mainMenuId)
                 .setText(BOT_CONTENT[UserState.UPDATE_AUTHOR]?.text)
-                .setReplyMarkup(getUpateAuthorKeyboard(photoId.toString()))
+                .setReplyMarkup(getUpdateAuthorKeyboard(photoId.toString()))
         )
         userService.updateState(user.id, UserState.UPDATE_AUTHOR)
     }
