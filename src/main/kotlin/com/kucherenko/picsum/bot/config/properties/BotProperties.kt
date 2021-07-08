@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component
 
 @Component
 data class BotProperties(
-    @Value("1757103980:AAEeog6xn7MxRCkswqbqBh_g0U8VlX23Ttc")
+    @Value("your bot token")
     val token: String,
-    @Value("picsum_service_bot")
-    val botUserName: String = "MyPicsumBot"
+    @Value("your bot username")
+    val botUserName: String
 )
